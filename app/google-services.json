@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1066041472576",
+    "project_id": "video-games-e9d46",
+    "storage_bucket": "video-games-e9d46.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1066041472576:android:b3eccdefb403150fe811a5",
+        "android_client_info": {
+          "package_name": "dev.sertan.android.videogames"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1066041472576-nl15nk5j61vr69rrns0s7mvjj668fc8p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "dev.sertan.android.videogames",
+            "certificate_hash": "40990e490414f3c16470ec9c85a496036161e969"
+          }
+        },
+        {
+          "client_id": "1066041472576-v1g3bgk6bvc3ql7dgrbni9jqr06l79b7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGVdpbSYxWWXzZWtLA1c1FnZjBm82dro4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1066041472576-v1g3bgk6bvc3ql7dgrbni9jqr06l79b7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
