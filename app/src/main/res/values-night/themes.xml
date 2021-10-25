@@ -9,7 +9,7 @@
         <item name="colorPrimaryVariant">@color/grey_300</item>
         <item name="colorOnPrimary">@color/black_900</item>
 
-        <item name="colorSecondary">@color/orange_300</item>
+        <item name="colorSecondary">@color/orange_400</item>
         <item name="colorSecondaryVariant">@color/orange_300</item>
         <item name="colorOnSecondary">@color/black_900</item>
 

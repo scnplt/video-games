@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:paddingBottom="@dimen/size_1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/colorPrimary">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/size_35"
+                        android:layout_gravity="center"
+                        android:contentDescription="TODO"
+                        tools:src="@android:drawable/sym_def_app_icon" />
+
+                    <ImageView
+                        android:layout_width="@dimen/size_7"
+                        android:layout_height="@dimen/size_7"
+                        android:layout_gravity="end|bottom"
+                        android:layout_marginEnd="@dimen/size_1"
+                        android:layout_marginBottom="@dimen/size_1"
+                        android:contentDescription="TODO"
+                        app:tint="?attr/colorSurface"
+                        tools:src="@drawable/ic_thumb_up" />
+
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/size_2"
+                    android:layout_marginTop="@dimen/size_1"
+                    android:textAppearance="?attr/textAppearanceHeadline5"
+                    tools:text="Name of Game" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/size_2"
+                    android:textAppearance="?attr/textAppearanceSubtitle1"
+                    tools:text="Release date" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/size_2"
+                    android:textAppearance="?attr/textAppearanceSubtitle2"
+                    tools:text="Metacritic Rate" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/size_2"
+                    android:layout_marginTop="@dimen/size_3"
+                    android:textAppearance="?attr/textAppearanceBody1"
+                    tools:text="@tools:sample/lorem/random" />
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </FrameLayout>
+
+</layout>

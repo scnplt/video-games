@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">VideoGames</string>
+    <string name="app_name">Video Games</string>
+
+    <string name="home">Home</string>
+    <string name="favorite">Favorite</string>
+    <string name="search">Search</string>
+
+    <string name="game_not_found">Sorry, the game you were looking for was not found!</string>
+
+    <string name="path_splash_screen_anim">game_controller.json</string>
+
 </resources>

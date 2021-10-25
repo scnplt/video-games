@@ -26,9 +26,8 @@
         <item name="android:textColorPrimary">?attr/colorOnSurface</item>
 
         <!-- Style -->
-        <item name="bottomNavigationStyle">
-            @style/Widget.MaterialComponents.BottomNavigationView.Colored
-        </item>
+        <item name="bottomNavigationStyle">@style/Widget.VideoGames.BottomNavigationBarStyle</item>
+        <item name="textInputStyle">@style/Widget.VideoGames.TextInputLayout</item>
 
         <!-- Other -->
         <item name="android:windowLightStatusBar">?attr/colorOnSurface</item>
