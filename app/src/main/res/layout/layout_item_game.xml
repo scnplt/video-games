@@ -3,19 +3,33 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="game"
+            type="dev.sertan.android.videogames.data.model.Game" />
+
+        <variable
+            name="listener"
+            type="dev.sertan.android.videogames.util.GameClickListener" />
+
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/size_1"
-        android:layout_marginBottom="@dimen/size_1">
+        android:layout_marginBottom="@dimen/size_1"
+        android:onClick="@{() -> listener.onClickGame(game)}">
 
         <ImageView
             android:id="@+id/imageViewGameItem"
             android:layout_width="@dimen/size_7"
             android:layout_height="@dimen/size_7"
-            android:contentDescription="TODO"
+            android:contentDescription="@{game.name}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:loadImg="@{game.backgroundImageURL}"
             tools:src="@tools:sample/avatars" />
 
         <TextView
@@ -25,6 +39,7 @@
             android:layout_marginHorizontal="@dimen/size_3"
             android:ellipsize="end"
             android:maxLines="1"
+            android:text="@{game.name}"
             android:textAppearance="?attr/textAppearanceListItem"
             app:layout_constraintBottom_toTopOf="@id/textViewGameItemRatingReleased"
             app:layout_constraintEnd_toEndOf="parent"
@@ -37,6 +52,7 @@
             android:id="@+id/textViewGameItemRatingReleased"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@{@string/text_merge(game.rating, game.released)}"
             android:textAppearance="?attr/textAppearanceListItemSecondary"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@id/textViewGameItemName"

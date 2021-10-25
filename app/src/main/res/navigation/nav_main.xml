@@ -21,7 +21,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="dev.sertan.android.videogames.ui.HomeFragment"
+        android:name="dev.sertan.android.videogames.ui.home.HomeFragment"
         android:label="HomeFragment"
         tools:layout="@layout/fragment_home">
         <action
@@ -51,6 +51,10 @@
         android:id="@+id/gameDetailsFragment"
         android:name="dev.sertan.android.videogames.ui.GameDetailsFragment"
         android:label="GameDetailsFragment"
-        tools:layout="@layout/fragment_game_details" />
+        tools:layout="@layout/fragment_game_details">
+        <argument
+            android:name="gameId"
+            app:argType="integer" />
+    </fragment>
 
 </navigation>
