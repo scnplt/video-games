@@ -1,12 +1,12 @@
 package dev.sertan.android.videogames.ui.adapter
 
+import android.view.View
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import dev.sertan.android.videogames.data.model.Game
 import dev.sertan.android.videogames.module.GlideApp
-import dev.sertan.android.videogames.ui.home.GameViewPagerAdapter
 
 @BindingAdapter("loadImg")
 internal fun ImageView.loadImage(url: String?) {
@@ -14,13 +14,11 @@ internal fun ImageView.loadImage(url: String?) {
 }
 
 @BindingAdapter("games")
-internal fun bindGames(view: ViewPager2, games: List<Game>?) {
-    (view.adapter as? GameViewPagerAdapter)?.submitList(games)
-}
-
-@BindingAdapter("games")
-internal fun bindGames(view: RecyclerView, games: List<Game>?) {
-    (view.adapter as? GameListAdapter)?.submitList(games)
+internal fun bindGames(view: View, games: List<Game>?) {
+    when (view) {
+        is ViewPager2 -> (view.adapter as? GameListAdapter)?.submitList(games)
+        is RecyclerView -> (view.adapter as? GameListAdapter)?.submitList(games)
+    }
 }
 
 @BindingAdapter("isActive")

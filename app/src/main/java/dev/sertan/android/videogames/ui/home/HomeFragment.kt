@@ -14,6 +14,8 @@ import dev.sertan.android.videogames.R
 import dev.sertan.android.videogames.data.model.Game
 import dev.sertan.android.videogames.databinding.FragmentHomeBinding
 import dev.sertan.android.videogames.ui.adapter.GameListAdapter
+import dev.sertan.android.videogames.ui.adapter.viewholder.GameImageViewHolder
+import dev.sertan.android.videogames.ui.adapter.viewholder.GameListViewHolder
 import dev.sertan.android.videogames.util.GameClickListener
 
 @AndroidEntryPoint
@@ -33,14 +35,21 @@ internal class HomeFragment : Fragment(), GameClickListener {
             container,
             false
         )
-        return binding.apply { lifecycleOwner = viewLifecycleOwner }.root
+        binding.lifecycleOwner = viewLifecycleOwner
+        setUpListAdapters()
+        return binding.root
+    }
+
+    private fun setUpListAdapters() {
+        binding.viewPagerGames.adapter =
+            GameListAdapter { GameImageViewHolder.createInstance(it, this) }
+        binding.recyclerViewGames.adapter =
+            GameListAdapter { GameListViewHolder.createInstance(it, this) }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
-        binding.viewPagerGames.adapter = GameViewPagerAdapter(this)
-        binding.recyclerViewGames.adapter = GameListAdapter(this)
         TabLayoutMediator(binding.tabLayout, binding.viewPagerGames) { _, _ -> }.attach()
     }
 
