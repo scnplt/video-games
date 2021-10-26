@@ -46,11 +46,13 @@ internal class GameRepository @Inject constructor(
             val gameFromNetwork = networkDataSource.getGame(gameId) ?: return@map Game()
             gameFromNetwork.apply {
                 favorite = false
-                localDataSource.insertGames(this)
+                localDataSource.updateGame(this)
             }
         }
     }
 
     suspend fun updateGame(game: Game) = localDataSource.updateGame(game)
+
+    fun getFavorites(): Flow<List<Game>> = localDataSource.getFavorites()
 
 }

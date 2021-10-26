@@ -26,4 +26,7 @@ internal interface GameDAO {
     @Update
     suspend fun updateGame(game: Game)
 
+    @Query("SELECT * FROM game WHERE favorite=1")
+    fun getFavorites(): Flow<List<Game>>
+
 }
