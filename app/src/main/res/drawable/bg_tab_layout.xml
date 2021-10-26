@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:innerRadius="0dp"
+    android:shape="ring"
+    android:thickness="@dimen/size_0_5"
+    android:tint="@color/color_tab_layout"
+    android:useLevel="false"
+    tools:tint="@color/orange_300" />

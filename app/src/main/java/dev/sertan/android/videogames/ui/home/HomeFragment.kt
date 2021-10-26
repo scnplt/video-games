@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
 import dev.sertan.android.videogames.R
 import dev.sertan.android.videogames.data.model.Game
@@ -40,6 +41,7 @@ internal class HomeFragment : Fragment(), GameClickListener {
         binding.viewModel = viewModel
         binding.viewPagerGames.adapter = GameViewPagerAdapter(this)
         binding.recyclerViewGames.adapter = GameListAdapter(this)
+        TabLayoutMediator(binding.tabLayout, binding.viewPagerGames) { _, _ -> }.attach()
     }
 
     override fun onDestroyView() {
