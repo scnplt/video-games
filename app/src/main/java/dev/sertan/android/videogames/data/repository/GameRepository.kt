@@ -7,6 +7,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.firstOrNull
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -16,15 +17,14 @@ internal class GameRepository @Inject constructor(
     private val networkDataSource: GameService,
     private val localDataSource: GameDAO
 ) {
-    private val coroutineScope by lazy { CoroutineScope(Dispatchers.IO) }
-    val games: Flow<List<Game>> = localDataSource.getAllGames()
+    val games: Flow<List<Game>> by lazy { localDataSource.getAllGames() }
 
     init {
         checkNewGames()
     }
 
     private fun checkNewGames() {
-        coroutineScope.launch {
+        CoroutineScope(Dispatchers.IO).launch {
             val gamesFromNetwork = networkDataSource.getGames()?.games ?: return@launch
             val newGames = gamesFromNetwork.filter { gameFromNetwork ->
                 games.firstOrNull()
@@ -35,6 +35,22 @@ internal class GameRepository @Inject constructor(
         }
     }
 
-    suspend fun searchGame(gameName: String): List<Game> = localDataSource.searchGame("%$gameName%")
+    suspend fun searchGame(gameName: String): List<Game> {
+        return localDataSource.searchGame("%$gameName%")
+    }
+
+    fun getGame(gameId: Int): Flow<Game> {
+        return localDataSource.getGame(gameId).map {
+            if (it.description != null) return@map it
+
+            val gameFromNetwork = networkDataSource.getGame(gameId) ?: return@map Game()
+            gameFromNetwork.apply {
+                favorite = false
+                localDataSource.insertGames(this)
+            }
+        }
+    }
+
+    suspend fun updateGame(game: Game) = localDataSource.updateGame(game)
 
 }

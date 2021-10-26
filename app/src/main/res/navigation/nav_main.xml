@@ -49,7 +49,7 @@
 
     <fragment
         android:id="@+id/gameDetailsFragment"
-        android:name="dev.sertan.android.videogames.ui.GameDetailsFragment"
+        android:name="dev.sertan.android.videogames.ui.game.GameDetailsFragment"
         android:label="GameDetailsFragment"
         tools:layout="@layout/fragment_game_details">
         <argument

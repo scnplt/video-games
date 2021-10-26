@@ -1,4 +1,4 @@
-package dev.sertan.android.videogames.util
+package dev.sertan.android.videogames.module
 
 import android.content.Context
 import com.bumptech.glide.GlideBuilder

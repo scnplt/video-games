@@ -6,7 +6,6 @@ import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import dev.sertan.android.videogames.data.model.Game
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.runBlocking
 import org.junit.Before
 import org.junit.Rule
@@ -28,8 +27,7 @@ internal class GameDatabaseTest {
 
     @Test
     fun getGame_invalidGameId_returnNull() = runBlocking {
-        val response = gameDAO.getGame(-1)
-        val game = response.firstOrNull()
+        val game = gameDAO.getGame(-1).first()
         Truth.assertThat(game).isNull()
     }
 
@@ -38,8 +36,8 @@ internal class GameDatabaseTest {
         val game = Game(-1)
         gameDAO.insertGames(game)
 
-        val response = gameDAO.getGame(game.id!!)
-        Truth.assertThat(response.firstOrNull()).isEqualTo(game)
+        val gameFromDatabase = gameDAO.getGame(game.id!!).first()
+        Truth.assertThat(gameFromDatabase).isEqualTo(game)
     }
 
     @Test
@@ -99,8 +97,8 @@ internal class GameDatabaseTest {
         game.favorite = true
         gameDAO.updateGame(game.copy(2))
 
-        val response = gameDAO.getGame(game.id!!)
-        Truth.assertThat(response.first()).isNotNull()
+        val gameFromDatabase = gameDAO.getGame(game.id!!)
+        Truth.assertThat(gameFromDatabase).isNotNull()
     }
 
     @Test
@@ -111,8 +109,8 @@ internal class GameDatabaseTest {
         game.favorite = false
         gameDAO.updateGame(game)
 
-        val response = gameDAO.getGame(game.id!!)
-        Truth.assertThat(response.first()).isEqualTo(game)
+        val gameFromDatabase = gameDAO.getGame(game.id!!).first()
+        Truth.assertThat(gameFromDatabase).isEqualTo(game)
     }
 
 }

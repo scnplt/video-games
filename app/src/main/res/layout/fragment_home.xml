@@ -64,8 +64,8 @@
                     <androidx.viewpager2.widget.ViewPager2
                         android:id="@+id/viewPagerGames"
                         android:layout_width="match_parent"
-                        android:layout_marginTop="@dimen/size_1"
                         android:layout_height="@dimen/size_30"
+                        android:layout_marginTop="@dimen/size_1"
                         android:visibility="@{viewModel.searchActive ? View.GONE : View.VISIBLE}"
                         app:games="@{viewModel.viewPagerGames}"
                         tools:background="@color/orange_300" />

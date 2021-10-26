@@ -3,9 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="dev.sertan.android.videogames.util.Converter" />
+
+        <variable
+            name="viewModel"
+            type="dev.sertan.android.videogames.ui.game.GameDetailsViewModel" />
+
+    </data>
+
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:visibility="@{viewModel.game == null ? View.INVISIBLE : View.VISIBLE}">
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
@@ -27,18 +40,23 @@
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/size_35"
                         android:layout_gravity="center"
-                        android:contentDescription="TODO"
+                        android:contentDescription="@{viewModel.game.name}"
+                        app:loadImg="@{viewModel.game.backgroundImageURL}"
                         tools:src="@android:drawable/sym_def_app_icon" />
 
                     <ImageView
                         android:layout_width="@dimen/size_7"
                         android:layout_height="@dimen/size_7"
                         android:layout_gravity="end|bottom"
-                        android:layout_marginEnd="@dimen/size_1"
-                        android:layout_marginBottom="@dimen/size_1"
-                        android:contentDescription="TODO"
-                        app:tint="?attr/colorSurface"
-                        tools:src="@drawable/ic_thumb_up" />
+                        android:layout_marginEnd="@dimen/size_0_5"
+                        android:layout_marginBottom="@dimen/size_0_5"
+                        android:background="@drawable/bg_ic_like"
+                        android:contentDescription="@{viewModel.game.name}"
+                        android:onClick="@{() -> viewModel.changeFavoriteStatus()}"
+                        android:padding="@dimen/size_1"
+                        android:src="@drawable/ic_like"
+                        app:isActive="@{viewModel.game.favorite}"
+                        app:tint="@color/color_icon_favorite" />
 
                 </FrameLayout>
 
@@ -47,6 +65,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/size_2"
                     android:layout_marginTop="@dimen/size_1"
+                    android:text="@{viewModel.game.name}"
                     android:textAppearance="?attr/textAppearanceHeadline5"
                     tools:text="Name of Game" />
 
@@ -54,6 +73,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/size_2"
+                    android:text="@{viewModel.game.released}"
                     android:textAppearance="?attr/textAppearanceSubtitle1"
                     tools:text="Release date" />
 
@@ -61,6 +81,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/size_2"
+                    android:text="@{String.valueOf(viewModel.game.metacritic)}"
                     android:textAppearance="?attr/textAppearanceSubtitle2"
                     tools:text="Metacritic Rate" />
 
@@ -69,6 +90,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/size_2"
                     android:layout_marginTop="@dimen/size_3"
+                    android:text="@{Converter.htmlToString(viewModel.game.description)}"
                     android:textAppearance="?attr/textAppearanceBody1"
                     tools:text="@tools:sample/lorem/random" />
 
