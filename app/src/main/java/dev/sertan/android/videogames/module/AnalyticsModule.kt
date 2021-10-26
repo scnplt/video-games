@@ -3,17 +3,17 @@ package dev.sertan.android.videogames.module
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ActivityComponent
-import dagger.hilt.android.scopes.ActivityScoped
+import dagger.hilt.components.SingletonComponent
 import dev.sertan.android.videogames.data.service.analytics.AnalyticsService
 import dev.sertan.android.videogames.data.service.analytics.FirebaseAnalyticsService
+import javax.inject.Singleton
 
 @Module
-@InstallIn(ActivityComponent::class)
+@InstallIn(SingletonComponent::class)
 internal object AnalyticsModule {
 
     @Provides
-    @ActivityScoped
+    @Singleton
     fun provideAnalyticsService(): AnalyticsService = FirebaseAnalyticsService()
 
 }

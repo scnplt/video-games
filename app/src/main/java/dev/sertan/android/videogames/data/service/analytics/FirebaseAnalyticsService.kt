@@ -15,8 +15,9 @@ internal class FirebaseAnalyticsService : AnalyticsService {
         }
     }
 
-    override fun logGameFavoriteStatusChange(gameName: String, favorite: Boolean) {
+    override fun logGameFavoriteStatusChange(gameId: Int, gameName: String, favorite: Boolean) {
         analytics.logEvent("game_favorite_status_change") {
+            param("game_id", gameId.toString())
             param("game_name", gameName)
             param("is_favorite", favorite.toString())
         }
