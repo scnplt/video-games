@@ -13,7 +13,7 @@ import javax.inject.Singleton
 
 @Module
 @TestInstallIn(components = [SingletonComponent::class], replaces = [DatabaseModule::class])
-internal class FakeDatabaseModule {
+internal object FakeDatabaseModule {
 
     @Provides
     @Singleton

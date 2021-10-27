@@ -9,14 +9,14 @@ internal class ConverterTest {
 
     @Test
     fun htmlToString_nullInput_returnEmptyResult() {
-        val result = Converter.htmlToString(null)
-        Truth.assertThat(result).isEmpty()
+        val response = Converter.htmlToString(null)
+        Truth.assertThat(response).isEmpty()
     }
 
     @Test
     fun htmlToString_htmlInput_returnCorrectResult() {
-        val result = Converter.htmlToString("Hello, <b>World</b>")
-        Truth.assertThat(result).isEqualTo("Hello, World")
+        val response = Converter.htmlToString("Hello, <b>World</b>")
+        Truth.assertThat(response).isEqualTo("Hello, World")
     }
 
 }
