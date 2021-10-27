@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="dev.sertan.android.videogames.util.Converter" />
+
+        <variable
+            name="viewModel"
+            type="dev.sertan.android.videogames.ui.game.GameDetailsViewModel" />
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="@{viewModel.game == null ? View.INVISIBLE : View.VISIBLE}">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:paddingBottom="@dimen/size_1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/colorPrimary">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/size_35"
+                        android:layout_gravity="center"
+                        android:contentDescription="@{viewModel.game.name}"
+                        app:loadImg="@{viewModel.game.backgroundImageURL}"
+                        tools:src="@android:drawable/sym_def_app_icon" />
+
+                    <ImageView
+                        android:layout_width="@dimen/size_7"
+                        android:layout_height="@dimen/size_7"
+                        android:layout_gravity="end|bottom"
+                        android:layout_marginEnd="@dimen/size_0_5"
+                        android:layout_marginBottom="@dimen/size_0_5"
+                        android:background="@drawable/bg_ic_like"
+                        android:contentDescription="@{viewModel.game.name}"
+                        android:onClick="@{() -> viewModel.changeFavoriteStatus()}"
+                        android:padding="@dimen/size_1"
+                        android:src="@drawable/ic_like"
+                        app:isActive="@{viewModel.game.favorite}"
+                        app:tint="@color/color_icon_favorite" />
+
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/size_2"
+                    android:layout_marginTop="@dimen/size_1"
+                    android:text="@{viewModel.game.name}"
+                    android:textAppearance="?attr/textAppearanceHeadline5"
+                    tools:text="Name of Game" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/size_2"
+                    android:text="@{@string/release(viewModel.game.released)}"
+                    android:textAppearance="?attr/textAppearanceSubtitle1"
+                    tools:text="Release date" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/size_2"
+                    android:text="@{@string/metacritic(viewModel.game.metacritic)}"
+                    android:textAppearance="?attr/textAppearanceSubtitle2"
+                    tools:text="Metacritic Rate" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/size_2"
+                    android:layout_marginTop="@dimen/size_3"
+                    android:text="@{Converter.htmlToString(viewModel.game.description)}"
+                    android:textAppearance="?attr/textAppearanceBody1"
+                    tools:text="@tools:sample/lorem/random" />
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </FrameLayout>
+
+</layout>

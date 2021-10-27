@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Widget.VideoGames.BottomNavigationBarStyle" parent="Widget.MaterialComponents.BottomNavigationView.Colored" />
+
+    <style name="Widget.VideoGames.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="boxStrokeColor">@color/color_text_input_layout</item>
+        <item name="android:textColorHint">@color/color_text_input_layout</item>
+        <item name="hintTextColor">@color/color_text_input_layout</item>
+        <item name="endIconTint">@color/color_text_input_layout</item>
+    </style>
+
+</resources>

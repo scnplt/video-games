@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="game"
+            type="dev.sertan.android.videogames.data.model.Game" />
+
+        <variable
+            name="listener"
+            type="dev.sertan.android.videogames.util.GameClickListener" />
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:onClick="@{() -> listener.onClickGame(game)}">
+
+        <ImageView
+            android:id="@+id/imageViewGame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="@dimen/size_2"
+            android:contentDescription="@{game.name}"
+            android:scaleType="centerCrop"
+            app:loadImg="@{game.backgroundImageURL}"
+            tools:src="@android:drawable/sym_def_app_icon" />
+
+    </FrameLayout>
+
+</layout>

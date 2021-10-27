@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="dev.sertan.android.videogames.ui.home.HomeViewModel" />
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?android:colorBackground"
+            app:elevation="0dp">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="@dimen/size_2"
+                app:endIconDrawable="@drawable/ic_search"
+                app:endIconMode="custom"
+                app:placeholderText="Game name">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:hint="@string/search"
+                    android:imeOptions="actionSearch"
+                    android:inputType="text"
+                    android:maxLength="50"
+                    android:maxLines="1"
+                    android:text="@={viewModel.searchText}" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="@{viewModel.showError ? View.INVISIBLE : View.VISIBLE}">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.viewpager2.widget.ViewPager2
+                        android:id="@+id/viewPagerGames"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/size_30"
+                        android:layout_marginTop="@dimen/size_1"
+                        android:visibility="@{viewModel.searchActive ? View.GONE : View.VISIBLE}"
+                        app:games="@{viewModel.viewPagerGames}"
+                        tools:background="@color/orange_300" />
+
+                    <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/tabLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/size_1"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/size_1"
+                        android:background="?android:colorBackground"
+                        android:visibility="@{viewPagerGames.visibility}"
+                        app:tabBackground="@drawable/bg_tab_layout"
+                        app:tabGravity="center"
+                        app:tabIndicatorHeight="0dp" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerViewGames"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clipToPadding="false"
+                        android:overScrollMode="never"
+                        android:paddingHorizontal="@dimen/size_2"
+                        android:paddingBottom="@dimen/size_1"
+                        app:games="@{viewModel.recyclerViewGames}"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:itemCount="10"
+                        tools:listitem="@layout/layout_item_game" />
+
+                </LinearLayout>
+
+            </androidx.core.widget.NestedScrollView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/size_2"
+                android:gravity="center"
+                android:text="@string/game_not_found"
+                android:textAppearance="?attr/textAppearanceSearchResultTitle"
+                android:visibility="@{viewModel.showError ? View.VISIBLE : View.INVISIBLE}"
+                tools:visibility="gone" />
+
+        </FrameLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

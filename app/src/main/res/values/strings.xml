@@ -1,3 +1,17 @@
 <resources>
-    <string name="app_name">VideoGames</string>
+    <string name="app_name">Video Games</string>
+
+    <string name="home">Home</string>
+    <string name="favorite">Favorite</string>
+    <string name="search">Search</string>
+
+    <string name="text_merge">%s - %s</string>
+
+    <string name="game_not_found">Sorry, the game you were looking for was not found!</string>
+
+    <string name="path_splash_screen_anim">lottie/game_controller.json</string>
+
+    <string name="release">Released: %s</string>
+    <string name="metacritic">Metacritic: %d</string>
+
 </resources>
