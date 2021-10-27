@@ -9,7 +9,7 @@ import dev.sertan.android.videogames.util.GameDiffCallback
 internal class GameListAdapter<VH : GameViewHolder>(private val getViewHolder: (ViewGroup) -> VH) :
     ListAdapter<Game, VH>(GameDiffCallback) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH  = getViewHolder(parent)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH = getViewHolder(parent)
 
     override fun onBindViewHolder(holder: VH, position: Int) {
         val game = currentList[position]
