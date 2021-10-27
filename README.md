@@ -28,7 +28,7 @@ koymalısınız. (13 Aralık tarihine kadar bu işlemi yapmadan kullanabilirsini
   | ![#D7D7D7](https://via.placeholder.com/15/D7D7D7/000000?text=+) `#D7D7D7` | ![#EE6D3E](https://via.placeholder.com/15/EE6D3E/000000?text=+) `#EE6D3E` |
   | ![#575757](https://via.placeholder.com/15/575757/000000?text=+) `#575757` |                                                                           |
   | ![#393939](https://via.placeholder.com/15/393939/000000?text=+) `#393939` |                                                                           |
-  | Black                                                                     | White                                                                     |
+  | Siyah                                                                     | Beyaz                                                                     |
   | ![#262626](https://via.placeholder.com/15/262626/000000?text=+) `#262626` | ![#FFFFFF](https://via.placeholder.com/15/FFFFFF/000000?text=+) `#FFFFFF` |
   | ![#000000](https://via.placeholder.com/15/000000/000000?text=+) `#000000` |
 
