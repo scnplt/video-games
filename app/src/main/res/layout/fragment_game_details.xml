@@ -73,7 +73,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/size_2"
-                    android:text="@{viewModel.game.released}"
+                    android:text="@{@string/release(viewModel.game.released)}"
                     android:textAppearance="?attr/textAppearanceSubtitle1"
                     tools:text="Release date" />
 
@@ -81,7 +81,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/size_2"
-                    android:text="@{String.valueOf(viewModel.game.metacritic)}"
+                    android:text="@{@string/metacritic(viewModel.game.metacritic)}"
                     android:textAppearance="?attr/textAppearanceSubtitle2"
                     tools:text="Metacritic Rate" />
 

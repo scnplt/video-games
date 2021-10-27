@@ -10,5 +10,8 @@
     <string name="game_not_found">Sorry, the game you were looking for was not found!</string>
 
     <string name="path_splash_screen_anim">lottie/game_controller.json</string>
+    
+    <string name="release">Released: %s</string>
+    <string name="metacritic">Metacritic: %d</string>
 
 </resources>
