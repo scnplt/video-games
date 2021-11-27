@@ -16,7 +16,7 @@
 [GameService.kt](app/src/main/java/dev/sertan/android/videogames/data/service/GameService.kt) dosyasında bulunan `private const val KEY =` karşısındaki anahtar yerine yazıp 
 kendi anahtarınız ile kullanabilirsiniz.
 - [Firebase](https://firebase.google.com/) entegrasyonları için sitesi üzerinden proje oluşturmalı ve size verilen `google-services.json` dosyasını [app](app/) klasörü altına
-koymalısınız. (13 Aralık tarihine kadar bu işlemi yapmadan kullanabilirsiniz bu durumda benim oluşturduğum projeye bağlı olarak çalışacaktır fakat bu süreç sonrasında kendi projenizi bağlamanız gerekecektir.)
+koymalısınız.
 
 ## Tema
 
